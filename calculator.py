@@ -1,3 +1,4 @@
+from calc import add,sub,multiply,divide
 def calculate():
 	operation = input('''
 Please type in the math operation you would like to complete:
@@ -16,19 +17,19 @@ Please type in the math operation you would like to complete:
 	if operation == '+':
 		#addition
 		print('{} + {} =  '.format(number_1, number_2))
-		print(number_1 + number_2)
+		print(add(number_1,number_2))
 	elif operation == '-':
 		#subtraction
 		print('{} - {} =  '.format(number_1, number_2))
-		print(number_1 - number_2)
+		print(sub(number_1,number_2))
 	elif operation == '*':
 		#multiplication
 		print('{} * {} =  '.format(number_1, number_2))
-		print(number_1 * number_2)
+		print(multiply(number_1,number_2))
 	elif operation == '/':
 		#division
 		print('{} / {} =  '.format(number_1, number_2)) 
-		print(number_1 / number_2)
+		print(divide(number_1 ,number_2))
 	else:
 		print("Please Enter a Valid Operation. +, -, * or /")
 
