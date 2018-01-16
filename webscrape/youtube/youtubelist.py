@@ -1,6 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup as soup
-
+import urllib.parse as up
 #imported re package
 import re
 
@@ -13,8 +13,10 @@ uClient = opener.open(my_url)
 html_page = uClient.read()
 uClient.close()
 page_soup = soup(html_page,"html.parser")
-
-songlist = page_soup.find_all(href = re.compile('^/watch.*')) #capture the video url from the html page
-
+songlist = page_soup.find_all(href = re.compile('^/watch\?v=.*')) #capture the video url from the html page
 for l in songlist:
-	print (l.get("href"))
+    a = l.get("href")
+    url_data = up.urlparse(a)
+    query = up.parse_qs(url_data.query)
+    video = query["v"][0]
+    print(video)
